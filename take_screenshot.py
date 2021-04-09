@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-def take_screenshot(url,dir):
+def take_screenshot(url):
     driver = webdriver.Chrome(executable_path='/Users/nitukumari/Desktop/web-crawler/chromedriver')
 
     driver.get(url)
