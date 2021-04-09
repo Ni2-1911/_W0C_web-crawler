@@ -1,0 +1,9 @@
+Python modules
+-requests
+-beautifulsoup
+-selenium
+-termcolor
+-time
+-sys
+-re
+-argparse
