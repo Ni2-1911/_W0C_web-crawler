@@ -9,6 +9,9 @@ REQUIREMENTS
 for pythton modules - refer requirements.txt
 other requirements - webDriver
 
-#usage
+usage
+-
 python3 Main_Tool.py --help
+
+
 <img width="907" alt="Screenshot 2021-04-09 at 23 02 13" src="https://user-images.githubusercontent.com/79151737/114220864-2463f800-998a-11eb-9bb1-93ef7307107a.png">
