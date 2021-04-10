@@ -23,73 +23,74 @@ import _recurssion_
 
 def find(args):
 #url
-    if args.e == "head":
-        get_head.get_headers(args.url)
+
     if args.e == "head" and args.edit == "save":
         print(colored("Headers are getting saved in :  ",'blue')+colored( args.path ,'red'))
         sys.stdout = open(args.path, "w")
         get_head.get_headers(args.url)
-        sys.stdout.close() 
-
+        sys.stdout.close()
+    elif args.e == "head":
+        get_head.get_headers(args.url)
+    
     if args.e == "ss":
-        print(colored("screenshot of this page is saved in current directory",'blue'))
         take_screenshot.take_screenshot(args.url)
+        print(colored("screenshot of this page is saved in current directory named :  ",'blue') + colored("main_page.png",'red' ))
 
-    if args.e == "link_d1":
-        get_all_links.get_links(args.url)
     if args.e == "link_d1" and args.edit == "save":
         print(colored("links of depth_1 are getting saved in :  ",'blue')+ colored( args.path ,'red'))
         sys.stdout = open(args.path, "w")
         get_all_links.get_links(args.url)
         sys.stdout.close() 
+    elif args.e == "link_d1":
+        get_all_links.get_links(args.url)
         
-    if args.e == 'phone_no':
-        get_phone_numbers.get_phone(args.url)
     if args.e == "phone_no" and args.edit == "save":
         print(colored("phone_no are getting saved in :  ",'blue')+colored( args.path,'red' ))
         sys.stdout = open(args.path, "w")
         get_phone_numbers.get_phone(args.url)
-        sys.stdout.close() 
+        sys.stdout.close()
+    elif args.e == 'phone_no':
+        get_phone_numbers.get_phone(args.url)
     
-    if args.e == 'email':
-        get_email.get_source_code(args.url)
     if args.e == "email" and args.edit == "save":
         print(colored("emails are getting saved in :  ",'blue')+colored( args.path,'red' ))
         sys.stdout = open(args.path, "w")
         get_email.get_source_code(args.url)
-        sys.stdout.close() 
+        sys.stdout.close()
+    elif args.e == 'email':
+        get_email.get_source_code(args.url)
 
-    if args.e == 'link':
-        _recurssion_.get_url_depth(args.url ,args.depth )
     if args.e == 'link' and args.edit == 'save':
         print(colored("links are getting saved in :  ",'blue')+colored( args.path,'red' ))
         sys.stdout = open(args.path, "w")
-        _recurssion_.get_depth(args.url ,args.depth )
+        _recurssion_.get_url_depth(args.url ,args.depth )
         sys.stdout.close()
+    elif args.e == 'link':
+        _recurssion_.get_url_depth(args.url ,args.depth )
 
-    if args.e == 'cnt_image':
-        images_file_cnt.get_img_cnt(args.url)
     if args.e == "cnt_image" and args.edit == "save":
         print(colored("data for number of images getting saved in :  ",'blue')+colored( args.path,'red' ))
         sys.stdout = open(args.path, "w")
         images_file_cnt.get_img_cnt(args.url)
-        sys.stdout.close() 
+        sys.stdout.close()
+    elif args.e == 'cnt_image':
+        images_file_cnt.get_img_cnt(args.url)
 
-    if args.e == 'source_code':
-        prettified_html_text.get_source_code(args.url)
     if args.e == "source_code" and args.edit == "save":
         print(colored("source code for this url getting saved in :  ",'blue')+colored( args.path,'red' ))
         sys.stdout = open(args.path, "w")
         prettified_html_text.get_source_code(args.url)
-        sys.stdout.close() 
-
-    if args.e == 'web_text':
-        prettified_html_text.get_source_code(args.url)        
+        sys.stdout.close()
+    elif args.e == 'source_code':
+        prettified_html_text.get_source_code(args.url)
+      
     if args.e == "web_text" and args.edit == "save":
         print(colored("web text data are getting saved in :  ",'blue')+colored( args.path,'red' ))
         sys.stdout = open(args.path, "w")
         prettified_html_text.get_source_code(args.url)
-        sys.stdout.close() 
+        sys.stdout.close()
+    elif args.e == 'web_text':
+        prettified_html_text.get_source_code(args.url)  
 
 #files
     if args.create == "dir":
@@ -100,21 +101,23 @@ def find(args):
         _file_.create_data_files(args.path ,args.name)
         print(colored("text file created  :  ",'blue')+colored( args.path,'red' ))
 
+    if args.e == "help":
+        print(colored("BASIC WEB CRAWLER WITH FOLLOWING FUNCTIONS: \n",'red')
+                                    + colored("[head]        - give header of url  \n", 'green')
+                                    + colored("[link_d1]     - links for depth1  of url \n", 'green')
+                                    + colored("[phone_no]    - give phone numbers in given url \n", 'green')
+                                    + colored("[cnt_image]   - count number of image in givel url \n", 'green')
+                                    + colored("[email]       - give emails present in given url \n" , 'green')
+                                    + colored("[link]        - give links for any depth \n", 'green')
+                                    + colored("[source_code] - give source code of url \n", 'green')
+                                    + colored("[web_text]    - give web text data of url \n", 'green')
+                                    + colored("[ss]          - give take screen shot of url \n", 'green'))
+
 
 parser = argparse.ArgumentParser()
-
 #arguments-url
-parser.add_argument( '--e' , type = str, help = colored(" Enter: [head] / [ss] / [link_d1]/[phone_no]/[cnt_image]/[email]/[link]/[source_code]/[web_text] ",'red')
-                                                            + colored("[head] - give header of url", 'green')
-                                                            + colored("[link_d1] - links for depth1  of url", 'green')
-                                                            + colored("[phone_no] - give phone numbers in given url", 'green')
-                                                            + colored("[cnt_image] - count number of image in givel url", 'green')
-                                                            + colored("[email] - give emails present in given url", 'green')
-                                                            + colored("[link] - give links for any depth", 'green')
-                                                            + colored("[source_code] - give source code of url", 'green')
-                                                            + colored("[web_text] - give web text data of url", 'green')
-                                                            + colored("[ss] - give take screen shot", 'green'))
-                            
+parser.add_argument( '--e' , type = str, help = colored(" Enter: [head] / [ss] / [link_d1]/[phone_no]/[cnt_image]/[email]/[link]/[source_code]/[web_text]/[help] ",'red'))
+                                                                                  
 
 parser.add_argument( '--url' , type = str, help = colored(" give target url here ",'blue'))
 parser.add_argument( '--depth' , type = int ,default=0 , help = colored(" GIVE DEPTH HERE (by default it will take 0)",'blue') + colored(" will only take for [link] ",'red'))
@@ -128,5 +131,4 @@ parser.add_argument( '--edit' , type = str, help =colored('save your data to tex
 args = parser.parse_args()
 
 sys.stdout.write(str(find(args)))
-
 
