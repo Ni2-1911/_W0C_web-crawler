@@ -67,10 +67,10 @@ def find(args):
     if args.e == "cnt_image" and args.edit == "save":
         print(colored("data for number of images getting saved in :  ",'blue')+colored( args.path,'red' ))
         sys.stdout = open(args.path, "w")
-        img_cnt_depth.get_url_depth.get_img_cnt(args.url,args.depth)
+        img_cnt_depth.get_url_depth(args.url,args.depth)
         sys.stdout.close()
     elif args.e == 'cnt_image':
-        img_cnt_depth.get_url_depth.get_img_cnt(args.url,args.depth)
+        img_cnt_depth.get_url_depth(args.url,args.depth)
 
     if args.e == "source_code" and args.edit == "save":
         print(colored("source code for this url getting saved in :  ",'blue')+colored( args.path,'red' ))
