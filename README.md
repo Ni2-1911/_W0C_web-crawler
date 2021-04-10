@@ -33,6 +33,3 @@ python3 Main_Tool.py --e head --url https://youtube.com --depth 1 --edit save --
 <img width="929" alt="Screenshot 2021-04-10 at 22 34 21" src="https://user-images.githubusercontent.com/79151737/114278327-eed41300-9a4c-11eb-95e1-a480ff597ac9.png">
 
 
-
-
-
