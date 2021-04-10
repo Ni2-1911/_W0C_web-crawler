@@ -12,6 +12,7 @@ other requirements - webDriver
 Usage
 -
 python3 Main_Tool.py --h
+
 python3 Main_Tool.py --e help
 
 <img width="933" alt="Screenshot 2021-04-10 at 22 18 59" src="https://user-images.githubusercontent.com/79151737/114277884-c21efc00-9a4a-11eb-81ce-ea7bf657ba36.png">
