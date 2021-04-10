@@ -75,10 +75,10 @@ def find(args):
     if args.e == "source_code" and args.edit == "save":
         print(colored("source code for this url getting saved in :  ",'blue')+colored( args.path,'red' ))
         sys.stdout = open(args.path, "w")
-        prettified_html_text.get_source_code(args.url)
+        prettified_html_text.get_web_text(args.url)
         sys.stdout.close()
     elif args.e == 'source_code':
-        prettified_html_text.get_source_code(args.url)
+        prettified_html_text.get_web_text(args.url)
       
     if args.e == "web_text" and args.edit == "save":
         print(colored("web text data are getting saved in :  ",'blue')+colored( args.path,'red' ))
