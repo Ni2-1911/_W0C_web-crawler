@@ -12,14 +12,21 @@ def get_links(u):
     global ux,x
     x=[]
     for links in u:
-        if("http" not in links and "https" not in links and links[0]== "/" and links != ""):
-            links=ux+links
-        elif("http" not in links and "https" not in links and links[0] !="/" and links != ""):
-            links=ux+"/"+links
-        response = requests.get(links)
-        soup = BeautifulSoup(response.text,'html.parser')
-        for link in soup.find_all('a'):
-            x.append(link.get('href'))
+        try:
+            if("http" not in links and "https" not in links and links[0]== "/" and links != ""):
+                links=ux+links
+            elif("http" not in links and "https" not in links and links[0] !="/" and links != ""):
+                links=ux+"/"+links
+        except:
+            pass
+        
+        try:
+            response = requests.get(links)
+            soup = BeautifulSoup(response.text,'html.parser')
+            for link in soup.find_all('a'):
+                x.append(link.get('href'))
+        except:
+            pass
 
     print(x)
     print("no of links we get: " , len(x))
