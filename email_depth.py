@@ -18,7 +18,7 @@ def get_links(u):
                 links=ux+links
             elif("http" not in links and "https" not in links and links[0] !="/" and links != ""):
                 links=ux+"/"+links
-        except TypeError :
+        except :
             pass    
         task(links)
 
@@ -50,6 +50,8 @@ def task(task):
     except requests.exceptions.ConnectionError:
         pass
     except requests.exceptions.InvalidURL:
+        pass
+    except:
         pass
             
             
